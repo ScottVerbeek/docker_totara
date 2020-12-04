@@ -3,5 +3,5 @@
 !docker-compose.yml
 !.gitignore
 !control
-!moodle-config
+!totara-config
 !README.md

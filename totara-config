@@ -1,0 +1,57 @@
+<?php
+/***********************************************************************************************************************
+Totara Registration
+***********************************************************************************************************************/
+//
+// When installing or upgrading Totara you will be asked to register your site if you have not already.
+// To save having to provide the information through the web interface you can set the following configuration variables.
+// Site type can be one of: production, trial, qa, demo, or development.
+$CFG->sitetype = 'development';
+
+
+/***********************************************************************************************************************
+Web Address
+***********************************************************************************************************************/
+//
+// Set the full web address that your Totara installation will be access on.
+// Important information
+//  * Totara can only be accessed via a single URL.
+//  * It must be either https:// or http:// Totara cannot be accessed on both. https:// is strongly recommended.
+//  * Do not add a trailing slash.
+//
+$CFG->wwwroot   = 'http://localhost';
+
+/***********************************************************************************************************************
+Data directory
+***********************************************************************************************************************/
+//
+// The following is the path to the directory that Totara will use to store files.
+// This includes user uploaded files, temporary and cache files, and other miscellaneous files created by Totara.
+// The directory MUST be both readable and writable by the web server user.
+// It should NOT be accessible via the web.
+//
+$CFG->dataroot  = '/var/sitedata';
+$CFG->directorypermissions = 0777;
+
+/***********************************************************************************************************************
+ Database configuration
+**********************************************************************************************************************/
+//
+// The following settings are common to all databases.
+// Database specific options are detailed in following sections.
+//
+$CFG->dbtype = 'pgsql';      // One of pgsql, mariadb, mysqli, sqlsrv
+$CFG->dblibrary = 'native';  // Always 'native'
+$CFG->dbhost = 'db';  // Host, URL or IP address
+$CFG->dbname = 'totara';     // Database name
+$CFG->dbuser = 'totara';   // Username for your database username
+$CFG->dbpass = 'password';   // Password for your database user
+$CFG->prefix = 'ttr_';       // Prefix to use for all table names
+$CFG->dboptions = array(
+    // Used to enable persistent database connections.
+    'dbpersist' => false,
+    // Set to true or to the socket path.
+    'dbsocket'  => false,
+    // Port to use to connect to the database. When empty the default port for your chosen DB will be used.
+    'dbport'    => '',
+);

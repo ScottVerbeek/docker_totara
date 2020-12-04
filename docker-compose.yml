@@ -13,8 +13,8 @@ services:
     environment:
       PHP_EXTENTION_XDEBUG: 1
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: moodle
-      POSTGRES_USER: moodle_user
+      POSTGRES_DB: totara
+      POSTGRES_USER: totara
     volumes:
       - 'db:/var/lib/postgresql'
   test-db:
