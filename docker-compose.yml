@@ -22,8 +22,8 @@ services:
     restart: always
     environment:
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: moodle
-      POSTGRES_USER: moodle_user
+      POSTGRES_DB: totara
+      POSTGRES_USER: totara
     volumes:
       - 'testdb:/var/lib/postgresql'
 volumes:

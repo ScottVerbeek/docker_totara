@@ -32,6 +32,18 @@ cp totara-config siteroot/config.php
 docker-compose up
 ```
 
+## Run PHPUnit tests
+You will need to enter the web container with `docker ps -it CONTAINER_NAME bash` and then
+```
+cd ../
+# Initialise PHPUnit (run once before use):
+php test/phpunit/phpunit.php init
+# Run all tests
+php test/phpunit/phpunit.php run
+# Drop database ready to re-initialise:
+php test/phpunit/phpunit.php util --drop
+```
+
 ## Setup Xdebug for VS Code
 
 Open vscode and click `create a launch.json file` then click PHP. VS Code will create a JSON file for you edit it to the following:

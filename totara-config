@@ -31,6 +31,7 @@ Data directory
 // It should NOT be accessible via the web.
 //
 $CFG->dataroot  = '/var/sitedata';
+$CFG->phpunit_dataroot = $CFG->dataroot . '_phpunit';
 $CFG->directorypermissions = 0777;
 
 /***********************************************************************************************************************
@@ -55,3 +56,11 @@ $CFG->dboptions = array(
     // Port to use to connect to the database. When empty the default port for your chosen DB will be used.
     'dbport'    => '',
 );
+
+$CFG->phpunit_dbtype = 'pgsql';      // One of pgsql, mariadb, mysqli, sqlsrv
+$CFG->phpunit_dblibrary = 'native';  // Always 'native'
+$CFG->phpunit_dbhost = 'test-db';  // Host, URL or IP address
+$CFG->phpunit_dbname = 'totara';     // Database name
+$CFG->phpunit_dbuser = 'totara';   // Username for your database username
+$CFG->phpunit_dbpass = 'password';   // Password for your database user
+$CFG->phpunit_prefix = 'p_';       // Prefix to use for all table names
