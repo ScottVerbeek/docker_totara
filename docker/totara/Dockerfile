@@ -45,10 +45,10 @@ RUN \
 
 COPY ./configs/apache2.conf ${APACHE_CONF_DIR}/apache2.conf
 COPY ./configs/server.conf ${APACHE_CONF_DIR}/sites-enabled/server.conf
-COPY ./configs/php.ini  ${PHP_CONF_DIR}/apache2/php.ini
+#COPY ./configs/php.ini  ${PHP_CONF_DIR}/apache2/php.ini
 COPY ./configs/php.ini  ${PHP_CONF_DIR}/cli/php.ini
 COPY ./configs/php.ini  ${PHP_CONF_DIR}/fpm/php.ini
-COPY ./configs/xdebug.ini  ${PHP_CONF_DIR}/mods-available/xdebug.ini
+COPY ./configs/xdebug.ini  ${PHP_CONF_DIR}/xdebug.ini
 
 WORKDIR /var/www/server/
 
