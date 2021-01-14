@@ -26,6 +26,20 @@ services:
       POSTGRES_USER: totara
     volumes:
       - 'testdb:/var/lib/postgresql'
+  pgadmin:
+    image: dpage/pgadmin4:4.18
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: moodle@moodle.com
+      PGADMIN_DEFAULT_PASSWORD: moodle
+      PGADMIN_LISTEN_PORT: 80
+    ports:
+      - "127.0.0.1:8080:80"
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    links:
+      - "db:pgadmin-server"
 volumes:
     db:
     testdb:
+    pgadmin:
