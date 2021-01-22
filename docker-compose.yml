@@ -26,6 +26,11 @@ services:
       POSTGRES_USER: totara
     volumes:
       - 'testdb:/var/lib/postgresql'
+  redis:
+    image: redis
+    restart: always
+    volumes:
+      - 'redis:/var/lib/redis'
   pgadmin:
     image: dpage/pgadmin4:4.18
     restart: always
@@ -43,3 +48,4 @@ volumes:
     db:
     testdb:
     pgadmin:
+    redis:

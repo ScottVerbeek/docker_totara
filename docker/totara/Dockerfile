@@ -20,7 +20,7 @@ RUN	\
 	&& add-apt-repository -y ppa:ondrej/php \
 	&& add-apt-repository -y ppa:ondrej/apache2 \
 	&& apt-get update \
-    && apt-get install -y curl apache2 libapache2-mod-php7.4 php7.4-bcmath php7.4-cli php7.4-curl php7.4-ctype php7.4-dom php7.4-fpm php7.4-gd php7.4-iconv php7.4-intl php7.4-ldap php7.4-mbstring php7.4-json php7.4-gd php7.4-mysql php7.4-opcache php7.4-pgsql php7.4-readline php7.4-simplexml php7.4-soap php7.4-tokenizer php7.4-xdebug php7.4-xml php7.4-xmlrpc php7.4-zip php-pear vim \
+    && apt-get install -y curl apache2 libapache2-mod-php7.4 php7.4-bcmath php7.4-cli php7.4-curl php7.4-ctype php7.4-dom php7.4-fpm php7.4-gd php7.4-iconv php7.4-intl php7.4-ldap php7.4-mbstring php7.4-json php7.4-gd php7.4-mysql php7.4-opcache php7.4-pgsql php7.4-readline php7.4-simplexml php7.4-soap php7.4-tokenizer php7.4-xdebug php7.4-xml php7.4-xmlrpc php7.4-zip php7.4-redis php7.4-dev vim \
     # Apache settings
     && cp /dev/null ${APACHE_CONF_DIR}/conf-available/other-vhosts-access-log.conf \
     && rm ${APACHE_CONF_DIR}/sites-enabled/000-default.conf ${APACHE_CONF_DIR}/sites-available/000-default.conf \
@@ -43,9 +43,12 @@ RUN \
     && mkdir /var/sitedata_phpunit \
     && chmod 0777 /var/sitedata_phpunit
 
+RUN \
+    pecl install zstd
+
 COPY ./configs/apache2.conf ${APACHE_CONF_DIR}/apache2.conf
 COPY ./configs/server.conf ${APACHE_CONF_DIR}/sites-enabled/server.conf
-#COPY ./configs/php.ini  ${PHP_CONF_DIR}/apache2/php.ini
+COPY ./configs/php.ini  ${PHP_CONF_DIR}/apache2/php.ini
 COPY ./configs/php.ini  ${PHP_CONF_DIR}/cli/php.ini
 COPY ./configs/php.ini  ${PHP_CONF_DIR}/fpm/php.ini
 COPY ./configs/xdebug.ini  ${PHP_CONF_DIR}/xdebug.ini
