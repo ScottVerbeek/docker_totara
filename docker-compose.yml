@@ -9,7 +9,6 @@ services:
       - ./siteroot:/var/www
   db:
     image: postgres:9.6
-    restart: always
     environment:
       PHP_EXTENTION_XDEBUG: 1
       POSTGRES_PASSWORD: password
@@ -19,7 +18,6 @@ services:
       - 'db:/var/lib/postgresql'
   test-db:
     image: postgres:9.6
-    restart: always
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: totara
@@ -28,7 +26,6 @@ services:
       - 'testdb:/var/lib/postgresql'
   pgadmin:
     image: dpage/pgadmin4:4.18
-    restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: moodle@moodle.com
       PGADMIN_DEFAULT_PASSWORD: moodle
