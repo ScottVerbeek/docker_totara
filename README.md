@@ -33,7 +33,7 @@ docker-compose up
 ```
 
 ## Run PHPUnit tests
-You will need to enter the web container with `docker ps -it CONTAINER_NAME bash` and then
+You will need to enter the web container with `docker exec -it CONTAINER_NAME bash` and then
 ```
 cd ../
 # Initialise PHPUnit (run once before use):
